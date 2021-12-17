@@ -2,6 +2,7 @@ import './App.css';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
