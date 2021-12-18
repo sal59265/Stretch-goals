@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Injury from './components/Injury';
 import Stretch from './components/Stretch';
 import Footer from './components/Footer';
+import About from './components/About';
 import { Route } from 'react-router-dom';
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
       </header>
       <main>
         <Route exact path="/" component={Home} />
+        <Route exact path="/About" component={About} />
         <Route exact path="/Injuries" component={Injury} />
         <Route exact path="/Stretches" component={Stretch} />
-        <Home />
       </main>
       <footer>
         <Footer />

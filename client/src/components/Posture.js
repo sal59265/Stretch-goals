@@ -8,7 +8,11 @@ const Posture = () => {
         src="https://i.pinimg.com/originals/3f/59/e9/3f59e9f43ad6f633bdeba561bb6f3b08.png"
         alt="posture"
       />
-      <div>This is the keypoints of good posture</div>
+      <div>
+        <li className="key-points">
+          <ul></ul>
+        </li>
+      </div>
     </div>
   );
 };
