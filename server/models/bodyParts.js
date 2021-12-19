@@ -4,10 +4,7 @@ const Schema = mongoose.Schema;
 const BodyPart = new Schema(
   {
     name: { type: String, required: true },
-    reason: { type: String, required: true },
-    instruction: { type: String, required: true },
-    image: { type: String, required: true },
-    video: { type: String, required: true }
+    injuries: { type: Array, required: true }
   },
   { timestamp: true }
 );
