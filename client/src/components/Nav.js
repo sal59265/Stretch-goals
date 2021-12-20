@@ -6,10 +6,18 @@ const Nav = () => {
     <nav className="navbar">
       <h4 className="title">Stretch Goals</h4>
       <div className="navDiv">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/Injuries">Injuries</Link>
-        <Link to="Stretches">Stretches</Link>
+        <Link className="divItem" to="/">
+          Home
+        </Link>
+        <Link className="divItem" to="/about">
+          About
+        </Link>
+        <Link className="divItem" to="/Injuries">
+          Injuries
+        </Link>
+        <Link className="divItem" to="/Stretches">
+          Stretches
+        </Link>
       </div>
     </nav>
   );
