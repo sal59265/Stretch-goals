@@ -7,7 +7,8 @@ const Injury = new Schema(
     cause: { type: Array, required: true },
     symptom: { type: Array, required: true },
     diagnosis: { type: String, required: true },
-    instruction: { type: Array, required: true }
+    instruction: { type: Array, required: true },
+    bodypart: { type: String, required: true }
   },
   { timestamp: true }
 );
