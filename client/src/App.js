@@ -8,6 +8,7 @@ import Injury from './components/Injury';
 import Stretch from './components/Stretch';
 import Footer from './components/Footer';
 import About from './components/About';
+import Parts from './components/Parts';
 
 function App() {
   const [bodyParts, setBodyparts] = useState([]);
@@ -15,7 +16,6 @@ function App() {
 
   const getBodyParts = async () => {
     const response = await axios.get('http://localhost:3001/parts');
-    console.log(response);
     setBodyparts(response.data);
   };
 
@@ -38,10 +38,11 @@ function App() {
         <Nav />
       </header>
       <main>
+        <Route exact path="/" component={Home} />
         <Route
           exact
-          path="/"
-          component={(props) => <Home {...props} parts={bodyParts} />}
+          path="/Parts"
+          component={(props) => <Parts {...props} parts={bodyParts} />}
         />
         <Route exact path="/About" component={About} />
         <Route
