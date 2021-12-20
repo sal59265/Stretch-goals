@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Injury = require('.mongoose');
-
-const BodyPart = mongoose.model('bodyPart');
+const BodyPart = require('./bodyParts');
+const Injury = require('./Injury');
 
 module.exports = {
   BodyPart,

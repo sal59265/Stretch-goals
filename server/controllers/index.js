@@ -1,5 +1,4 @@
-const BodyPart = require('../models/index');
-const Injury = require('../models/index');
+const { BodyPart, Injury } = require('../models/index');
 
 const getAllBodyPart = async (req, res) => {
   try {
