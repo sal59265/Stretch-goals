@@ -8,4 +8,8 @@ router.get('/parts', controllers.getAllBodyPart);
 
 router.get('/injuries', controllers.getAllInjury);
 
+router.get('/parts/:id', controllers.getBodyPartById);
+
+router.get('/injuries/:id', controllers.getInjuryById);
+
 module.exports = router;

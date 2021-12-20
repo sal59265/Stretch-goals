@@ -14,5 +14,5 @@ const Injury = ({ injuries, history }) => {
     </div>
   );
 };
-//work on the connection first
+
 export default Injury;
