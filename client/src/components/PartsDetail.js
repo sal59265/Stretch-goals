@@ -14,8 +14,8 @@ const PartsDetail = (props) => {
     <div className="injuryDetail">
       <h1>{selectedPart.name}</h1>
       <div>
-        {selectedPart.injuries.map((injury) => (
-          <div>{injury}</div>
+        {selectedPart.injuries.map((injury, index) => (
+          <div key={index}>{injury}</div>
         ))}
       </div>
     </div>

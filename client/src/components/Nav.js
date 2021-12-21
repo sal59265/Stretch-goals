@@ -18,8 +18,8 @@ const Nav = () => {
         <Link className="divItem" to="/Injuries">
           Injuries
         </Link>
-        <Link className="divItem" to="/Stretches">
-          Stretches
+        <Link className="divItem" to="/addinjury">
+          Add Injury
         </Link>
       </div>
     </nav>

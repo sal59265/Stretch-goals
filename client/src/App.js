@@ -10,7 +10,8 @@ import InjuryDetail from './components/InjuryDetail';
 import Nav from './components/Nav';
 import Parts from './components/Parts';
 import PartsDetail from './components/PartsDetail';
-import Stretch from './components/Stretch';
+import AddInjury from './components/AddInjury';
+import UpdateInjury from './components/UpdateInjury';
 
 function App() {
   const [bodyParts, setBodyparts] = useState([]);
@@ -60,7 +61,12 @@ function App() {
           path="/injuries/:id"
           component={(props) => <InjuryDetail {...props} injuries={injuries} />}
         />
-        <Route exact path="/stretches" component={Stretch} />
+        <Route exact path="/addinjury" component={AddInjury} />
+        <Route
+          exact
+          path="/updateinjury"
+          component={(props) => <UpdateInjury {...props} />}
+        />
       </main>
       <footer>
         <Footer />

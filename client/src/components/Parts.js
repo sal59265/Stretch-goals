@@ -7,8 +7,8 @@ const Parts = ({ parts, history }) => {
 
   return (
     <div className="parts">
-      {parts.map(({ _id, name }) => (
-        <div className="part-card" onClick={() => showParts(_id)}>
+      {parts.map(({ _id, name, index }) => (
+        <div key={index} className="part-card" onClick={() => showParts(_id)}>
           <h3>{name}</h3>
         </div>
       ))}
