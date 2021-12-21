@@ -7,15 +7,12 @@ const Injury = ({ injuries, history }) => {
     history.push(`/Injuries/${id}`);
   };
 
-  const [deleteInjury, setDeleteInjury] = useState(null);
-
-  useEffect(() => {
-    async function removeInjury(id) {
-      await axios.delete(`http://localhost:3001/injuries/${id}`);
-      setDeleteInjury('Delete Successful');
-    }
-    removeInjury();
-  }, []);
+  const [deleteInjury, setDeleteInjury] = useState();
+  const removeInjury = async (id) => {
+    await axios.delete(`http://localhost:3001/injuries/${id}`);
+    setDeleteInjury();
+    window.location.reload();
+  };
 
   return (
     <div className="injury">
@@ -27,7 +24,7 @@ const Injury = ({ injuries, history }) => {
           <Link to="/updateinjury">
             <button>Update</button>
           </Link>
-          <button onClick={() => removeInjury()}>Delete</button>
+          <button onClick={() => removeInjury(_id)}>Delete</button>
         </div>
       ))}
       <div>
