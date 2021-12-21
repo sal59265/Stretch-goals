@@ -14,14 +14,8 @@ router.get('/injuries/:id', controllers.getInjuryById);
 
 router.post('/injuries', controllers.createInjury);
 
-router.post('/parts', controllers.createPart);
+router.put('/injuries/:id', controllers.updateInjury);
 
-router.put('/injuries:id', controllers.updateInjury);
-
-router.put('/parts:id', controllers.updatePart);
-
-router.delete('/injuries:id', controllers.deleteInjury);
-
-router.delete('parts:id', controllers.deletePart);
+router.delete('/injuries/:id', controllers.deleteInjury);
 
 module.exports = router;
