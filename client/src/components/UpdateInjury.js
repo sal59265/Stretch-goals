@@ -1,37 +1,42 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 
-const UpdateInjury = (props) => {
-  const [newIjury, setNewInjury] = useState({
-    name: '',
-    cause: [],
-    symptom: [],
-    diagnosis: '',
-    instruction: [],
-    bodyPart: ''
-  });
+const UpdateInjury = async (props) => {
+  const updateInjury = async (e) => {
+    return await axios.put('http://localhost/updateinjury:id');
+  };
 
-  // const updateInjury = async () => {
-  //   const res = await axios.put('http://localhost/updateinjury:id')
-  //   console.log(res.data)
-  //   setNewInjury(res.data)
+  const handleChange = (e) => {};
+
   return (
-    <div>
-      {/* <input
-        type="text"
-        placeholder="Possible cause"
-        onChange={(event) => {
-          setNewCause(event.target.value);
-        }}
-      /> */}
-      <button
-      // onClick={() => {
-      //   updateCause(id);
-      // }}
-      >
-        Update
-      </button>
-      Update Injury Here
+    <div className="updateInjury">
+      <form>
+        <div className="values">
+          <label>Name:</label>
+          <input type="text" name={'name'} placeholder={'name'} />
+        </div>
+        <div>
+          <label>Cause:</label>
+          <input type="text" name={'cause'} placeholder={'Cause'} />
+        </div>
+        <div>
+          <label>Symptom:</label>
+          <input type="text" name={'symptom'} placeholder={'Symptoms'} />
+        </div>
+        <div>
+          <label>Diagnosis:</label>
+          <input type="text" name={'diagnosis'} placeholder={'Diagnosis'} />
+        </div>
+        <div>
+          <label>Instruction:</label>
+          <input type="text" name={'instruction'} placeholder={'Instruction'} />
+        </div>
+        <div>
+          <label>Body Part:</label>
+          <input type="text" name={'bodypart'} placeholder={'Body Part'} />
+        </div>
+        <button className="addButton">Post your injury</button>
+      </form>
     </div>
   );
 };

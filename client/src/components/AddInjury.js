@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddInjury = (props) => {
+  const [newInjury, setNewInjury] = useState({
+    name: '',
+    cause: [],
+    symptom: [],
+    diagnosis: '',
+    instruction: [],
+    bodyPart: ''
+  });
+  const addInjury = async (e) => {
+    return await axios.post('http://localhost:3001/injuries', newInjury);
+  };
+
+  const handleChange = (e) => {
+    setNewInjury({ ...newInjury, [e.target.name]: e.target.value });
+  };
   const handleSubmit = (e) => {
-    props.addInjury(e);
+    addInjury();
     props.history.push('/injuries');
   };
 
-  const newInjury = props.newInjury;
-  console.log(newInjury);
   return (
-    <div>
+    <div className="newInjury" key="createNewInjury">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="values">
           <label>Name:</label>
           <input
             type="text"
             value={newInjury.name}
-            onChange={props.handleChange}
+            onChange={handleChange}
             name={'name'}
             placeholder={'name'}
           />
@@ -26,7 +40,7 @@ const AddInjury = (props) => {
           <input
             type="text"
             value={newInjury.cause}
-            onChange={props.handleChange}
+            onChange={handleChange}
             name={'cause'}
             placeholder={'Cause'}
           />
@@ -36,7 +50,7 @@ const AddInjury = (props) => {
           <input
             type="text"
             value={newInjury.symptom}
-            onChange={props.handleChange}
+            onChange={handleChange}
             name={'symptom'}
             placeholder={'Symptoms'}
           />
@@ -46,7 +60,7 @@ const AddInjury = (props) => {
           <input
             type="text"
             value={newInjury.diagnosis}
-            onChange={props.handleChange}
+            onChange={handleChange}
             name={'diagnosis'}
             placeholder={'Diagnosis'}
           />
@@ -56,7 +70,7 @@ const AddInjury = (props) => {
           <input
             type="text"
             value={newInjury.instruction}
-            onChange={props.handleChange}
+            onChange={handleChange}
             name={'instruction'}
             placeholder={'Instruction'}
           />
@@ -66,12 +80,12 @@ const AddInjury = (props) => {
           <input
             type="text"
             value={newInjury.bodypart}
-            onChange={props.handleChange}
+            onChange={handleChange}
             name={'bodypart'}
             placeholder={'Body Part'}
           />
         </div>
-        <button>Here</button>
+        <button className="addButton">Post your injury</button>
       </form>
     </div>
   );
