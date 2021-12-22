@@ -21,7 +21,7 @@ const Injury = ({ injuries, history }) => {
           <div className="injury-card" onClick={() => showInjuries(_id)}>
             <h3>{name}</h3>
           </div>
-          <Link to="/updateinjury">
+          <Link to={`/updateinjury/${_id}`}>
             <button>Update</button>
           </Link>
           <button onClick={() => removeInjury(_id)}>Delete</button>

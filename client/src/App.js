@@ -68,8 +68,8 @@ function App() {
         />
         <Route
           exact
-          path="/updateinjury"
-          component={(props) => <UpdateInjury {...props} />}
+          path="/updateinjury/:id"
+          component={(props) => <UpdateInjury {...props} injuries={injuries} />}
         />
       </main>
       <footer>

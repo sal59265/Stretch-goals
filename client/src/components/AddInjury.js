@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const AddInjury = (props) => {
+  console.log(props);
   const [newInjury, setNewInjury] = useState({
     name: '',
     cause: [],

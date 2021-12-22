@@ -6,6 +6,7 @@ const DeleteInjury = (props) => {
 
   useEffect(() => {
     async function removeInjury(id) {
+      console.log(id);
       await axios.delete(`http://localhost:3001/injuries/${id}`);
       setDeleteInjury('Delete successful');
     }

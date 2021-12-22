@@ -65,10 +65,10 @@ const updateInjury = async (req, res) => {
       { new: true },
       (err, injury) => {
         if (err) {
-          res.status(500).send(err);
+          // res.status(500).send(err);
         }
         if (!injury) {
-          res.status(500).send('Injury not found!');
+          // res.status(500).send('Injury not found!');
         }
         return res.status(200).json(injury);
       }
