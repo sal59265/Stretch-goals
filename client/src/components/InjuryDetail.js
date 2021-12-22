@@ -13,18 +13,24 @@ const InjuryDetail = (props) => {
   return selectedInjury ? (
     <div className="injuryDetail">
       <h1>{selectedInjury.name}</h1>
-      <div>
+      <div className="details">
+        Causes
         {selectedInjury.cause.map((cause) => (
           <div>{cause}</div>
         ))}
       </div>
-      <div>
+      <div className="details">
+        Symptoms
         {selectedInjury.symptom.map((symptom) => (
           <div>{symptom}</div>
         ))}
       </div>
-      <div>{selectedInjury.diagnosis}</div>
-      <div>
+      <div className="details">
+        <div>Diagnosis</div>
+        {selectedInjury.diagnosis}
+      </div>
+      <div className="details">
+        <div>Stretches</div>
         {selectedInjury.instruction.map((instruction) => (
           <div>{instruction}</div>
         ))}

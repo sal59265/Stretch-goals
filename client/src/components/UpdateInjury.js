@@ -5,7 +5,8 @@ const UpdateInjury = (props) => {
   let _id = props.match.params.id;
 
   const [updateInjury, setUpdateInjury] = useState({
-    cause: []
+    cause: [],
+    instruction: []
   });
   const updateNewInjury = async () => {
     return await axios.put(
@@ -25,18 +26,8 @@ const UpdateInjury = (props) => {
   };
 
   return (
-    <div className="updateInjury">
+    <div className="newInjury">
       <form onSubmit={handleSubmit}>
-        {/* <div className="values">
-            <label>Name:</label>
-            <input
-              type="text"
-              value={updateInjury.name}
-              onChange={handleChange}
-              name={'name'}
-              placeholder={'name'}
-            />
-          </div> */}
         <div>
           <label>Cause:</label>
           <input
@@ -47,45 +38,16 @@ const UpdateInjury = (props) => {
             placeholder={'Cause'}
           />
         </div>
-        {/* <div>
-            <label>Symptom:</label>
-            <input
-              type="text"
-              value={updateInjury.symptom}
-              onChange={handleChange}
-              name={'symptom'}
-              placeholder={'Symptoms'}
-            />
-          </div>
-          <div>
-            <label>Diagnosis:</label>
-            <input
-              type="text"
-              value={updateInjury.diagnosis}
-              onChange={handleChange}
-              name={'diagnosis'}
-              placeholder={'Diagnosis'}
-            />
-          </div>
-          <div>
-            <label>Instruction:</label>
-            <input
-              type="text"
-              value={updateInjury.instruction}
-              onChange={handleChange}
-              name={'instruction'}
-              placeholder={'Instruction'}
-            />
-          </div>
-          <div>
-            <label>Body Part:</label>
-            <input
-              type="text"
-              value={updateInjury.bodyPart}
-              name={'bodypart'}
-              placeholder={'Body Part'}
-            />
-          </div> */}
+        <div>
+          <label>Instruction:</label>
+          <input
+            type="text"
+            value={updateInjury.instruction}
+            onChange={handleChange}
+            name={'instruction'}
+            placeholder={'Instruction'}
+          />
+        </div>
         <button className="addButton">Update your cause</button>
       </form>
     </div>

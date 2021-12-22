@@ -22,18 +22,13 @@ const Injury = ({ injuries, history }) => {
             <h3>{name}</h3>
           </div>
           <Link to={`/updateinjury/${_id}`}>
-            <button>Update</button>
+            <button className="twoButton">Update</button>
           </Link>
-          <button onClick={() => removeInjury(_id)}>Delete</button>
+          <button className="twoButton" onClick={() => removeInjury(_id)}>
+            Delete
+          </button>
         </div>
       ))}
-      <div>
-        If you don't see an injury that you have and want to share, please press
-        this button
-      </div>
-      <Link to="/addinjury">
-        <button>Post</button>
-      </Link>
     </div>
   );
 };
