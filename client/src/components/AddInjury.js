@@ -1,74 +1,78 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 
-const AddInjury = () => {
-  const [name, setName] = useState('');
-  const [cause, setCause] = useState([]);
-  const [symptom, setSymptom] = useState([]);
-  const [diagnosis, setDiagnosis] = useState('');
-  const [instruction, setInstruction] = useState([]);
-  const [bodyPart, setBodyPart] = useState('');
-
-  const addInjury = () => {
-    axios
-      .post('https:localhost:3001/injuries', {
-        name: name,
-        cause: cause,
-        symptom: symptom,
-        diagnosis: diagnosis,
-        instruction: instruction,
-        bodyPart: bodyPart
-      })
-      .then(() => {
-        console.log('success');
-      });
+const AddInjury = (props) => {
+  const handleSubmit = (e) => {
+    props.addInjury(e);
+    props.history.push('/injuries');
   };
 
+  const newInjury = props.newInjury;
+  console.log(newInjury);
   return (
     <div>
-      <label>Name:</label>
-      <input
-        type="text"
-        onChange={(event) => {
-          setName(event.target.value);
-        }}
-      />
-      <label>Cause:</label>
-      <input
-        type="text"
-        onChange={(event) => {
-          setCause(event.target.value);
-        }}
-      />
-      <label>Symptom:</label>
-      <input
-        type="text"
-        onChange={(event) => {
-          setSymptom(event.target.value);
-        }}
-      />
-      <label>Diagnosis:</label>
-      <input
-        type="text"
-        onChange={(event) => {
-          setDiagnosis(event.target.value);
-        }}
-      />
-      <label>Instruction:</label>
-      <input
-        type="text"
-        onChange={(event) => {
-          setInstruction(event.target.value);
-        }}
-      />
-      <label>Body Part:</label>
-      <input
-        type="text"
-        onChange={(event) => {
-          setBodyPart(event.target.value);
-        }}
-      />
-      <button onClick={addInjury}>Here</button>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            value={newInjury.name}
+            onChange={props.handleChange}
+            name={'name'}
+            placeholder={'name'}
+          />
+        </div>
+        <div>
+          <label>Cause:</label>
+          <input
+            type="text"
+            value={newInjury.cause}
+            onChange={props.handleChange}
+            name={'cause'}
+            placeholder={'Cause'}
+          />
+        </div>
+        <div>
+          <label>Symptom:</label>
+          <input
+            type="text"
+            value={newInjury.symptom}
+            onChange={props.handleChange}
+            name={'symptom'}
+            placeholder={'Symptoms'}
+          />
+        </div>
+        <div>
+          <label>Diagnosis:</label>
+          <input
+            type="text"
+            value={newInjury.diagnosis}
+            onChange={props.handleChange}
+            name={'diagnosis'}
+            placeholder={'Diagnosis'}
+          />
+        </div>
+        <div>
+          <label>Instruction:</label>
+          <input
+            type="text"
+            value={newInjury.instruction}
+            onChange={props.handleChange}
+            name={'instruction'}
+            placeholder={'Instruction'}
+          />
+        </div>
+        <div>
+          <label>Body Part:</label>
+          <input
+            type="text"
+            value={newInjury.bodypart}
+            onChange={props.handleChange}
+            name={'bodypart'}
+            placeholder={'Body Part'}
+          />
+        </div>
+        <button>Here</button>
+      </form>
     </div>
   );
 };

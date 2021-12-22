@@ -35,6 +35,26 @@ function App() {
     getInjuries();
   }, []);
 
+  const [newInjury, setNewInjury] = useState({
+    name: '',
+    cause: [],
+    symptom: [],
+    diagnosis: '',
+    instruction: [],
+    bodyPart: ''
+  });
+
+  const addInjury = async (e) => {
+    const res = await axios.post('http://localhost:3001/injuries', newInjury);
+    setNewInjury(res.data);
+    const injury = {
+      ...newInjury
+    };
+  };
+  const handleChange = (e) => {
+    setNewInjury({ ...newInjury, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="App">
       <header>
@@ -61,7 +81,18 @@ function App() {
           path="/injuries/:id"
           component={(props) => <InjuryDetail {...props} injuries={injuries} />}
         />
-        <Route exact path="/addinjury" component={AddInjury} />
+        <Route
+          exact
+          path="/addinjury"
+          component={(props) => (
+            <AddInjury
+              {...props}
+              newInjury={newInjury}
+              handleChange={handleChange}
+              addInjury={addInjury}
+            />
+          )}
+        />
         <Route
           exact
           path="/updateinjury"
